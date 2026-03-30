@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Place Order</h2>
+<form method="POST">
+Name: <input name="name"><br>
+Flavor:
+<select name="flavor">
+{% for f in flavors %}
+<option value="{{f}}">{{f}}</option>
+{% endfor %}
+</select>
+Size:
+<select name="size">
+{% for s in sizes %}
+<option value="{{s}}">{{s}}</option>
+{% endfor %}
+</select>
+
+Toppings:
+{% for t in toppings %}
+<input type="checkbox" name="toppings" value="{{t}}"> {{t}}<br>
+{% endfor %}
+
+Quantity: <input type="number" name="quantity" value="1">
+Card: <input name="card">
+
+<button type="submit">Submit</button>
+</form>
+{% endblock %}

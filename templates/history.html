@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>My Orders</h2>
+<table>
+<tr><th>Flavor</th><th>Total</th></tr>
+{% for o in orders %}
+<tr>
+<td>{{o.flavor}}</td>
+<td>{{o.total}}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

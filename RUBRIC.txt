@@ -1,0 +1,42 @@
+Sweet Scoops Midterm Rubric (100 points)
+
+1. Session User (15 pts)
+- Creates a user_id using Flask sessions
+- Uses the session user_id consistently across routes
+
+2. Order Form Handling (15 pts)
+- Correctly reads form data using request.form
+- Correctly handles multiple toppings using getlist
+
+3. Total Calculation (15 pts)
+- Uses correct base price for selected size
+- Correctly sums topping prices
+- Correctly multiplies by quantity
+
+4. SQLAlchemy Model Definition (10 pts)
+- Defines all required columns in Order model
+- Uses appropriate data types (String, Integer, Float)
+
+5. Database Storage (15 pts)
+- Correctly creates and saves Order object
+- Commits changes to the database
+- Stores only last 4 digits of card number
+
+6. User Order History (10 pts)
+- Filters orders by session user_id
+- Does not display other users’ data
+
+7. Staff View (10 pts)
+- Implements /staff route
+- Displays all orders using .all()
+
+8. Validation (10 pts)
+- Prevents invalid submissions (e.g., empty name)
+- Ensures card number is 16 digits and numeric
+- Ensures quantity is at least 1
+- Handles invalid input without crashing
+
+9. Code Quality (5 pts)
+- Clean, readable, and organized code
+- Logical structure and consistent naming
+- Templates render without errors

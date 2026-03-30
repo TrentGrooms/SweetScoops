@@ -1,0 +1,5 @@
+body { font-family: Arial; background:#f7f9fc;}
+h1 {background:#ff7eb3;color:white;padding:15px;text-align:center;}
+nav {background:#333;padding:10px;text-align:center;}
+nav a {color:white;margin:0 10px;}
+.container {width:80%;margin:auto;}
