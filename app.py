@@ -65,7 +65,16 @@ def order():
         if int(quantity) < 1:
             return "Invalid quantity", 400
 
-        total = SIZE_PRICES[size] * int(quantity) + sum(TOPPING_PRICES.get(t, 0) for t in toppings)
+        if size not in SIZE_PRICES:
+            return "Invalid size", 400
+
+        if flavor not in FLAVORS:
+            return "Invalid flavor", 400
+
+        if not all(t in TOPPING_PRICES for t in toppings):
+            return "Invalid toppings", 400
+
+        total = (SIZE_PRICES[size] + sum(TOPPING_PRICES.get(t, 0) for t in toppings)) * int(quantity)
 
 
 
@@ -75,10 +84,6 @@ def order():
             db_session.add(new_order)
             db_session.commit()
 
-            if "order_ids" not in session:
-                session["order_ids"] = [new_order.id]
-            else:
-                session["order_ids"].append(new_order.id)
 
             db_session.close()
             return redirect(url_for("history"))
